@@ -1,0 +1,9 @@
+1. grep "abc" log.txt
+2. grep -rn "abc" ./project/
+3. chmod +x script.sh
+3. find /home -name "*.txt"
+4. find . -type f -size +10M
+5. ps
+6. ps aux
+7. kill 1234
+8. kill -9 1234

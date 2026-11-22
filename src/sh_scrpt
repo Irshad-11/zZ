@@ -1,0 +1,453 @@
+
+#!/bin/bash
+
+# ==========================================
+# 1. VARIABLES
+# ==========================================
+
+name="Irshad"
+age=22
+
+echo "Name: $name"
+echo "Age: $age"
+
+# ==========================================
+# 2. USER INPUT
+# ==========================================
+
+read -p "Enter your name: " username
+read -p "Enter your age: " userage
+
+echo "Hello $username"
+echo "Your age is $userage"
+
+
+# ==========================================
+# 3. ARITHMETIC OPERATIONS
+# ==========================================
+
+a=20
+b=10
+
+echo "Addition: $((a+b))"
+echo "Subtraction: $((a-b))"
+echo "Multiplication: $((a*b))"
+echo "Division: $((a/b))"
+echo "Modulus: $((a%b))"
+
+# User input arithmetic
+read -p "Enter first number: " x
+read -p "Enter second number: " y
+
+echo "Sum: $((x+y))"
+
+
+# ==========================================
+# 4. IF - ELSE CONDITION
+# ==========================================
+
+read -p "Enter a number: " num
+
+if [ "$num" -gt 0 ]
+then
+    echo "Positive number"
+
+elif [ "$num" -lt 0 ]
+then
+    echo "Negative number"
+
+else
+    echo "Zero"
+fi
+
+
+# ==========================================
+# 5. COMPARISON OPERATORS
+# ==========================================
+
+# Integer comparison:
+# -eq : Equal
+# -ne : Not equal
+# -gt : Greater than
+# -lt : Less than
+# -ge : Greater than or equal
+# -le : Less than or equal
+
+a=10
+b=20
+
+if [ "$a" -lt "$b" ]
+then
+    echo "A is smaller than B"
+fi
+
+
+# ==========================================
+# 6. LOGICAL OPERATORS
+# ==========================================
+
+# && : AND
+# || : OR
+# !  : NOT
+
+age=22
+
+if [ "$age" -ge 18 ] && [ "$age" -le 30 ]
+then
+    echo "Age is between 18 and 30"
+fi
+
+
+# ==========================================
+# 7. FOR LOOP (STATIC VALUES)
+# ==========================================
+
+for i in 1 2 3 4 5
+do
+    echo "Number: $i"
+done
+
+
+# ==========================================
+# 8. FOR LOOP (RANGE)
+# ==========================================
+
+for i in {1..10}
+do
+    echo "$i"
+done
+
+
+# ==========================================
+# 9. FOR LOOP (USER INPUT)
+# ==========================================
+
+read -p "Enter loop limit: " n
+
+for ((i=1; i<=n; i++))
+do
+    echo "$i"
+done
+
+
+# ==========================================
+# 10. FOR LOOP (INCREMENT / DECREMENT)
+# ==========================================
+
+# Increment by 2
+
+for ((i=2; i<=10; i+=2))
+do
+    echo "$i"
+done
+
+# Decrement
+
+for ((i=10; i>=1; i--))
+do
+    echo "$i"
+done
+
+
+# ==========================================
+# 11. WHILE LOOP
+# ==========================================
+
+i=1
+
+while [ "$i" -le 5 ]
+do
+    echo "While: $i"
+    ((i++))
+done
+
+
+# ==========================================
+# 12. WHILE LOOP (USER INPUT)
+# ==========================================
+
+read -p "Enter limit: " limit
+
+i=1
+
+while [ "$i" -le "$limit" ]
+do
+    echo "$i"
+    ((i++))
+done
+
+
+# ==========================================
+# 13. UNTIL LOOP
+# ==========================================
+
+i=1
+
+until [ "$i" -gt 5 ]
+do
+    echo "Until: $i"
+    ((i++))
+done
+
+
+# ==========================================
+# 14. ARRAY
+# ==========================================
+
+fruits=("Apple" "Mango" "Orange" "Banana")
+
+# Access one element
+echo "First fruit: ${fruits[0]}"
+
+# All elements
+echo "All fruits: ${fruits[@]}"
+
+# Array length
+echo "Array size: ${#fruits[@]}"
+
+# Loop through array
+for fruit in "${fruits[@]}"
+do
+    echo "$fruit"
+done
+
+
+# ==========================================
+# 15. ARRAY WITH USER INPUT
+# ==========================================
+
+read -p "How many numbers? " n
+
+numbers=()
+
+for ((i=0; i<n; i++))
+do
+    read -p "Enter number: " value
+    numbers+=("$value")
+done
+
+echo "Entered numbers: ${numbers[@]}"
+
+# Display array using index
+
+for ((i=0; i<${#numbers[@]}; i++))
+do
+    echo "Index $i = ${numbers[i]}"
+done
+
+
+# ==========================================
+# 16. NESTED FOR LOOP
+# ==========================================
+
+for ((i=1; i<=3; i++))
+do
+    for ((j=1; j<=3; j++))
+    do
+        echo -n "* "
+    done
+
+    echo
+done
+
+
+# ==========================================
+# 17. BREAK
+# ==========================================
+
+for ((i=1; i<=10; i++))
+do
+    if [ "$i" -eq 5 ]
+    then
+        break
+    fi
+
+    echo "$i"
+done
+
+
+# ==========================================
+# 18. CONTINUE
+# ==========================================
+
+for ((i=1; i<=10; i++))
+do
+    if [ $((i%2)) -eq 0 ]
+    then
+        continue
+    fi
+
+    echo "$i"
+done
+
+
+# ==========================================
+# 19. CASE STATEMENT
+# ==========================================
+
+read -p "Enter a number (1-3): " choice
+
+case $choice in
+    1)
+        echo "One"
+        ;;
+    2)
+        echo "Two"
+        ;;
+    3)
+        echo "Three"
+        ;;
+    *)
+        echo "Invalid choice"
+        ;;
+esac
+
+
+# ==========================================
+# 20. STRING OPERATIONS
+# ==========================================
+
+str="Hello World"
+
+echo "String: $str"
+echo "Length: ${#str}"
+echo "Uppercase: ${str^^}"
+echo "Lowercase: ${str,,}"
+echo "Substring: ${str:0:5}"
+
+
+# ==========================================
+# 21. STRING COMPARISON
+# ==========================================
+
+read -p "Enter password: " password
+
+if [ "$password" = "admin123" ]
+then
+    echo "Access Granted"
+else
+    echo "Access Denied"
+fi
+
+
+# ==========================================
+# 22. FUNCTIONS
+# ==========================================
+
+greet()
+{
+    echo "Welcome to Bash Scripting"
+}
+
+greet
+
+
+# Function with parameters
+
+add()
+{
+    echo "Sum: $(($1+$2))"
+}
+
+add 10 20
+
+
+# ==========================================
+# 23. FUNCTION WITH USER INPUT
+# ==========================================
+
+multiply()
+{
+    result=$(($1*$2))
+    echo "Multiplication: $result"
+}
+
+read -p "Enter first number: " x
+read -p "Enter second number: " y
+
+multiply "$x" "$y"
+
+
+# ==========================================
+# 24. FILE TESTING
+# ==========================================
+
+read -p "Enter filename: " file
+
+if [ -f "$file" ]
+then
+    echo "File exists"
+
+elif [ -d "$file" ]
+then
+    echo "It is a directory"
+
+else
+    echo "File does not exist"
+fi
+
+# Other file conditions:
+# -e : File or directory exists
+# -f : Regular file exists
+# -d : Directory exists
+# -r : Read permission
+# -w : Write permission
+# -x : Execute permission
+# -s : File is not empty
+
+
+# ==========================================
+# 25. COMMAND LINE ARGUMENTS
+# ==========================================
+
+echo "Script name: $0"
+echo "First argument: $1"
+echo "Second argument: $2"
+echo "All arguments: $@"
+echo "Total arguments: $#"
+
+
+# ==========================================
+# 26. EXIT STATUS
+# ==========================================
+
+ls
+
+echo "Exit status: $?"
+
+# 0 = Success
+# Non-zero = Error
+
+
+# ==========================================
+# 27. SELECT LOOP (MENU)
+# ==========================================
+
+select option in Addition Subtraction Multiplication Exit
+do
+    case $option in
+        Addition)
+            echo "Addition selected"
+            ;;
+        Subtraction)
+            echo "Subtraction selected"
+            ;;
+        Multiplication)
+            echo "Multiplication selected"
+            ;;
+        Exit)
+            break
+            ;;
+        *)
+            echo "Invalid option"
+            ;;
+    esac
+done
+
+
+# ==========================================
+# END OF SCRIPT
+# ==========================================
+
+echo "All Bash examples completed!"
+
